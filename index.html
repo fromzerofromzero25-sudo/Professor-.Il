@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Professor AI — مساعد ومجتمع لعشاق البرمجة.">
+<title>Professor AI | مساعد البرمجة</title>
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#101a2b;--panel2:#14223a;--line:#263b5c;--text:#f2f6ff;--muted:#a8b6d1;--blue:#6d8cff;--cyan:#55d7ef;--green:#56e0ad}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 85% 0%,#182b50 0,transparent 40%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:5;background:#080d18eF;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.2rem;letter-spacing:.2px}.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--blue),#9a6cff);box-shadow:0 8px 28px #6d8cff35}
+nav{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.94rem}nav a:hover{color:white}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+.lang,.btn{border:1px solid var(--line);border-radius:11px;padding:9px 14px;color:var(--text);background:#14213a}
+.btn.primary{background:linear-gradient(135deg,#6d8cff,#8a6dff);border:0;font-weight:750;box-shadow:0 8px 24px #6d8cff30}
+.hero{padding:54px 0 32px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 11px;border:1px solid #334d7b;border-radius:999px;color:#b9caff;background:#111e36;font-size:.86rem}
+h1{font-size:clamp(2.2rem,5vw,4.1rem);line-height:1.15;letter-spacing:-1.4px;margin:18px 0}
+.gradient{background:linear-gradient(90deg,#9dafff,#5ddcf2);color:transparent;background-clip:text;-webkit-background-clip:text}
+.lead{color:var(--muted);font-size:1.08rem;max-width:650px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.hero-card,.panel,.feature{border:1px solid var(--line);background:linear-gradient(145deg,#14213a,#0e1728);border-radius:20px}
+.hero-card{padding:22px;box-shadow:0 20px 60px #0003}.terminal-head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px;color:var(--muted);font-size:.88rem}.dots{display:flex;gap:5px}.dots i{width:8px;height:8px;border-radius:50%;background:#7183aa}.code{direction:ltr;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere;font: .91rem/1.9 ui-monospace,SFMono-Regular,Consolas,monospace;color:#b4e9ff}.kw{color:#c5a4ff}.str{color:#9de6b8}.comment{color:#788cae}
+section{padding:28px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:17px}.section-head h2{margin:0;font-size:1.65rem}.section-head p{margin:5px 0 0;color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{padding:20px}.feature-icon{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:#23365b;font-size:1.35rem;margin-bottom:12px}.feature h3{margin:0 0 7px}.feature p{margin:0;color:var(--muted);font-size:.94rem}
+.chat-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:16px}.panel{padding:20px}.panel h3{margin-top:0}.quick-list{display:grid;gap:9px}.quick{width:100%;text-align:start;background:#0b1424;border:1px solid var(--line);border-radius:11px;padding:11px 12px;color:var(--text)}.quick:hover{border-color:#718cff}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;color:#ffdda0;background:#302718;border:1px solid #5b492b;padding:4px 9px;border-radius:999px}.status:before{content:"";width:7px;height:7px;border-radius:50%;background:#ffbd58}
+.chatbox{display:flex;flex-direction:column;min-height:330px}.messages{flex:1;display:flex;flex-direction:column;gap:12px;margin:14px 0}.message{max-width:95%;padding:12px 14px;border-radius:14px;background:#182742;border:1px solid #2b4268}.message.user{align-self:flex-start;background:#20294b}.message p{margin:0;color:#e8efff}.composer{display:flex;gap:9px;align-items:end}.composer textarea{width:100%;min-height:48px;max-height:130px;resize:vertical;background:#0a1220;border:1px solid var(--line);border-radius:12px;padding:11px;color:var(--text);outline:none}.composer textarea:focus{border-color:var(--blue)}
+.notice{color:#b9c7df;background:#111d30;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.88rem;margin-top:12px}
+footer{border-top:1px solid var(--line);margin-top:35px;padding:24px 0;color:var(--muted);font-size:.9rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+body.en{direction:ltr}body.en .code,body.en .message.user{text-align:left}body.en .quick{text-align:left}
+@media(max-width:760px){.hero-grid,.chat-layout{grid-template-columns:1fr}.hero{padding-top:35px}.hero-card{max-width:100%}.features{grid-template-columns:1fr 1fr}nav{gap:11px}}
+@media(max-width:480px){.features{grid-template-columns:1fr}.nav{align-items:flex-start}.brand{font-size:1.05rem}nav{width:100%;order:3}.composer{align-items:stretch;flex-direction:column}.composer .btn{width:100%}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a class="brand" href="#"><span class="logo">✦</span><span>Professor AI</span></a>
+  <nav><a href="#features" data-ar="المميزات" data-en="Features">المميزات</a><a href="#assistant" data-ar="المساعد" data-en="AI Assistant">المساعد</a><a href="#about" data-ar="عن المشروع" data-en="About">عن المشروع</a></nav>
+  <button class="lang" id="langBtn" type="button">English</button>
+ </div>
+</header>
+<main class="wrap">
+ <section class="hero">
+  <div class="hero-grid">
+   <div>
+    <span class="eyebrow" data-ar="مساحة لكل شخص يحب البرمجة" data-en="A home for people who love coding">مساحة لكل شخص يحب البرمجة</span>
+    <h1><span data-ar="اكتب كودك القادم مع" data-en="Build your next idea with">اكتب كودك القادم مع</span><br><span class="gradient">Professor AI</span></h1>
+    <p class="lead" data-ar="مساعد برمجي يساعدك على فهم الأكواد، تعلّم المفاهيم، واكتشاف الأخطاء — بالعربي والإنجليزي." data-en="A coding companion to help explain code, learn concepts, and debug errors — in Arabic and English.">مساعد برمجي يساعدك على فهم الأكواد، تعلّم المفاهيم، واكتشاف الأخطاء — بالعربي والإنجليزي.</p>
+    <div class="actions"><a class="btn primary" href="#assistant" data-ar="جرّب الواجهة" data-en="Try the interface">جرّب الواجهة</a><a class="btn" href="#features" data-ar="اكتشف المميزات" data-en="Explore features">اكتشف المميزات</a></div>
+   </div>
+   <div class="hero-card">
+    <div class="terminal-head"><span>✦ professor.py</span><span class="dots"><i></i><i></i><i></i></span></div>
+    <div class="code"><span class="comment"># Your next idea starts here</span>
+<span class="kw">def</span> learn_to_code():
+    curiosity = <span class="str">"keep learning"</span>
+    practice = <span class="str">"every day"</span>
+    <span class="kw">return</span> curiosity, practice
+
+<span class="comment"># Small steps. Big ideas.</span></div>
+   </div>
+  </div>
+ </section>
+ <section id="features">
+  <div class="section-head"><div><h2 data-ar="مصمم للمبرمجين" data-en="Made for developers">مصمم للمبرمجين</h2><p data-ar="كل ما تحتاجه لتبدأ وتتطور في رحلة البرمجة." data-en="Useful tools to start learning and keep improving.">كل ما تحتاجه لتبدأ وتتطور في رحلة البرمجة.</p></div></div>
+  <div class="features">
+   <article class="feature"><div class="feature-icon">⌘</div><h3 data-ar="توليد الأكواد" data-en="Code generation">توليد الأكواد</h3><p data-ar="حوّل فكرتك إلى مثال برمجي واضح وقابل للتطوير." data-en="Turn an idea into a clear code example you can build on.">حوّل فكرتك إلى مثال برمجي واضح وقابل للتطوير.</p></article>
+   <article class="feature"><div class="feature-icon">⌕</div><h3 data-ar="شرح الأخطاء" data-en="Debugging help">شرح الأخطاء</h3><p data-ar="افهم سبب الخطأ وما الخطوات التي تساعد على إصلاحه." data-en="Understand what an error means and how to investigate it.">افهم سبب الخطأ وما الخطوات التي تساعد على إصلاحه.</p></article>
+   <article class="feature"><div class="feature-icon">文</div><h3 data-ar="تعلّم بلغتك" data-en="Learn your way">تعلّم بلغتك</h3><p data-ar="محتوى عربي وإنجليزي للمبتدئين والمبرمجين." data-en="Arabic and English explanations for beginners and developers.">محتوى عربي وإنجليزي للمبتدئين والمبرمجين.</p></article>
+  </div>
+ </section>
+ <section id="assistant">
+  <div class="section-head"><div><h2 data-ar="مساعد البرمجة" data-en="Coding assistant">مساعد البرمجة</h2><p data-ar="اسأل عن البرمجة واحصل على مساعدة من الذكاء الاصطناعي." data-en="This is the first interface prototype. Connecting a real AI model comes next.">اسأل عن البرمجة واحصل على مساعدة من الذكاء الاصطناعي.</p></div><span class="status" data-ar="مساعد البرمجة جاهز" data-en="AI not connected yet">مساعد البرمجة جاهز</span></div>
+  <div class="chat-layout">
+   <aside class="panel"><h3 data-ar="ابدأ من هنا" data-en="Start with an idea">ابدأ من هنا</h3><p style="color:var(--muted);font-size:.92rem" data-ar="اختر مثالاً حتى يظهر في مربع الرسالة." data-en="Choose a prompt to place it in the message box.">اختر مثالاً حتى يظهر في مربع الرسالة.</p>
+    <div class="quick-list"><button class="quick" data-prompt-ar="اشرح لي الفرق بين HTML وCSS وJavaScript" data-prompt-en="Explain the difference between HTML, CSS, and JavaScript">🌐 <span data-ar="اشرح أساسيات الويب" data-en="Explain web basics">اشرح أساسيات الويب</span></button><button class="quick" data-prompt-ar="اكتب مثال Python يشرح الحلقات التكرارية" data-prompt-en="Write a Python example explaining loops">🐍 <span data-ar="تعلّم Python" data-en="Learn Python">تعلّم Python</span></button><button class="quick" data-prompt-ar="ساعدني في فهم رسالة خطأ برمجية" data-prompt-en="Help me understand a programming error">🛠️ <span data-ar="افهم خطأ برمجياً" data-en="Understand an error">افهم خطأ برمجياً</span></button></div>
+   </aside>
+   <div class="panel chatbox"><div class="messages" id="messages"><div class="message"><p data-ar="أهلاً بك في Professor AI! اكتب سؤالاً برمجياً أو اختر مثالاً. حالياً هذه تجربة للواجهة فقط." data-en="Welcome to Professor AI! Type a coding question or choose a prompt. For now, this is an interface demo only.">أهلاً بك في Professor AI! اكتب سؤالاً برمجياً أو اختر مثالاً. حالياً هذه تجربة للواجهة فقط.</p></div></div>
+    <form id="chatForm" class="composer"><textarea id="prompt" rows="2" placeholder="اكتب سؤالك البرمجي هنا..." aria-label="Coding question"></textarea><button class="btn primary" type="submit" data-ar="إرسال" data-en="Send">إرسال</button></form>
+    <div class="notice" id="demoNotice" data-ar="مفتاح API محفوظ على الخادم ولا يظهر داخل صفحة الموقع." data-en="Note: real AI replies will work after connecting an AI service. Never put API keys or passwords in this page.">مفتاح API محفوظ على الخادم ولا يظهر داخل صفحة الموقع.</div>
+   </div>
+  </div>
+ </section>
+ <section id="about"><div class="panel"><h3 data-ar="فكرة المشروع" data-en="About the project">فكرة المشروع</h3><p data-ar="Professor AI مشروع مستقل موجّه لعشّاق البرمجة. يتصل الموقع بخدمة الذكاء الاصطناعي عبر خادم آمن. يجب ضبط مفتاح الخدمة في إعدادات الاستضافة قبل التشغيل." data-en="Professor AI is a project for people who love programming. This version builds the front end first; next we can add a secure AI connection and test it before publishing.">Professor AI مشروع مستقل موجّه لعشّاق البرمجة. يتصل الموقع بخدمة الذكاء الاصطناعي عبر خادم آمن. يجب ضبط مفتاح الخدمة في إعدادات الاستضافة قبل التشغيل.</p></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> Professor AI</span><span data-ar="صُنع لعشّاق البرمجة" data-en="Built for people who love coding">صُنع لعشّاق البرمجة</span></div></footer>
+<script>
+const translations = document.querySelectorAll('[data-ar][data-en]');
+let lang = 'ar';
+const promptBox = document.getElementById('prompt');
+const messages = document.getElementById('messages');
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('langBtn').addEventListener('click', () => {
+  lang = lang === 'ar' ? 'en' : 'ar';
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('en', lang === 'en');
+  translations.forEach(el => { el.textContent = el.dataset[lang]; });
+  promptBox.placeholder = lang === 'ar' ? 'اكتب سؤالك البرمجي هنا...' : 'Type your coding question here...';
+  document.getElementById('langBtn').textContent = lang === 'ar' ? 'English' : 'العربية';
+});
+document.querySelectorAll('[data-prompt-ar]').forEach(btn => btn.addEventListener('click', () => {
+  promptBox.value = lang === 'ar' ? btn.dataset.promptAr : btn.dataset.promptEn;
+  promptBox.focus();
+}));
+document.getElementById('chatForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const value = promptBox.value.trim();
+  if (!value) return;
+  const userMsg = document.createElement('div');
+  userMsg.className = 'message user';
+  const p = document.createElement('p');
+  p.textContent = value;
+  userMsg.appendChild(p);
+  messages.appendChild(userMsg);
+  promptBox.value = '';
+
+  const reply = document.createElement('div');
+  reply.className = 'message';
+  const rp = document.createElement('p');
+  rp.textContent = lang === 'ar' ? 'لحظة، أجهّز الإجابة…' : 'Thinking…';
+  reply.appendChild(rp);
+  messages.appendChild(reply);
+  const sendButton = e.submitter || document.querySelector('#chatForm button[type="submit"]');
+  if (sendButton) sendButton.disabled = true;
+  try {
+    const response = await fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: value, language: lang })
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || 'request-failed');
+    rp.textContent = data.reply || (lang === 'ar' ? 'ما وصلني رد. جرّب مرة ثانية.' : 'No reply received. Please try again.');
+  } catch (error) {
+    rp.textContent = lang === 'ar'
+      ? 'ما كدرنا نتصل بخدمة الذكاء الاصطناعي. تأكد من إعداد مفتاح Gemini على الخادم وأن الموقع يعمل على Netlify.'
+      : 'Could not connect to the AI service. Check the Gemini key on the server and make sure the site is running on Netlify.';
+  } finally {
+    if (sendButton) sendButton.disabled = false;
+    messages.scrollTop = messages.scrollHeight;
+  }
+});
+</script>
+</body>
+</html>
